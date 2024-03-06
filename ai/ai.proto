@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package ai;
+option go_package = "./ai";
+
+enum NodeType {
+  Null = 0; // 空
+  ContentCreate = 1; // 文字内容创建
+  ContentTips = 2; // 文字内容获取修改提示
+  BrainCreate = 3; // 脑图内容创建
+  BrainTips = 4; // 脑图节点获取修改提示
+  ContentUpdate = 5; // 文字内容更新（非 AI 更新，用户手动一系列更改后调用）
+  ContentModify = 6; // 根据提供的修改建议修改指定的文字内容
+  ContentUpdateByBrain = 7; // 文字内容更新，由脑图内容 AI 更新
+  ContentTranslate = 8; // 文字指定内容翻译
+  WordsDescribe = 9; // 指定文字解释（文字、脑图均调用这个解释）
+  BrainUpdate = 10; // 脑图内容更新（非 AI 更新，用户手动一系列更改后调用）
+  BrainModify = 11; // 根据提供的修改建议修改指定的脑图内容
+  BrainUpdateByContent = 12; // 脑图内容更新，由文字内容 AI 更新
+  BrainExpand = 13; // 脑图扩展
+  BrainExpandToNewBrain = 14; // 脑图扩展学习，生成一个全新的脑图
+  BrainQuestionAsk = 15; // 对脑图的 AI 问答
+
+  ContentCreateByBrain = 16; // 文字内容创建（由脑图）
+  ImageCreateByBrain = 17; // 图片创建（由脑图）
+  BrainCreateByContent = 18; // 脑图内容创建（由文字）
+
+  TempContentPersonalize = 19; // 临时为自学习/个性化功能增加一个入口
+}
+
+enum NodeStatus {
+  Ready = 0;
+  Running = 1;
+}
+
+message KeyValue {
+  string key = 1;
+  string value = 2;
+}
+
+message Node {
+  string id = 1;
+  NodeType type = 2;
+  NodeStatus status = 3;
+  repeated KeyValue params = 4;
+  string result = 5;
+}
+
+message GetResultRequest {
+  string sessionId = 1;
+  string nodeId = 2;
+}
+
+message GetResultResponse {
+  int32 code = 1;
+  Node node = 2;
+}
+
+message CreateSessionRequest {
+  NodeType type = 1;
+  repeated KeyValue params = 2;
+  repeated string settings = 3;
+  string userId = 4;
+}
+
+message CreateSessionResponse {
+  int32 code = 1;
+  string sessionId = 2;
+  string rootNodeId = 3;
+}
+
+message AddNodeRequest {
+  string sessionId = 1;
+  string fatherNodeId = 2;
+  repeated KeyValue params = 3;
+  NodeType type = 4;
+  repeated string settings = 5;
+}
+
+message AddNodeResponse {
+  int32 code = 1;
+  string nodeId = 2;
+}
+
+message DeleteSessionRequest {
+  string sessionId = 1;
+}
+
+message DeleteSessionResponse {
+  int32 code = 1;
+}
+
+message GetItemRequest {
+  string type = 1;
+}
+
+message GetItemResponse {
+  string result = 1;
+}
+
+message AddVersionRequest {
+  string type = 1;
+  string id = 2;
+  string change = 3;
+}
+
+message AddVersionResponse {
+  int32 code = 1;
+  uint32 version = 2;
+}
+
+message ActiveVersionRequest {
+  string type = 1;
+  string id = 2;
+  uint32 version = 3;
+}
+
+message ActiveVersionResponse {
+  int32 code = 1;
+}
+
+service Ai {
+  rpc getResult(GetResultRequest) returns(GetResultResponse);
+  rpc createSession(CreateSessionRequest) returns(CreateSessionResponse);
+  rpc addNode(AddNodeRequest) returns(AddNodeResponse);
+  rpc deleteSession(DeleteSessionRequest) returns(DeleteSessionResponse);
+
+  rpc getItem(GetItemRequest) returns(GetItemResponse);
+  rpc addVersion(AddVersionRequest) returns(AddVersionResponse);
+  rpc activeVersion(ActiveVersionRequest) returns (ActiveVersionResponse);
+}

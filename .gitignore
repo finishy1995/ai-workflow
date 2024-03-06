@@ -1,0 +1,6 @@
+.idea/
+vendor/
+etc/
+*/remind.txt
+
+*.DS_Store
