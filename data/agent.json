@@ -1,181 +1,19 @@
 [
   {
-    "id": "ag_style_content",
-    "name": "官方——文字风格",
+    "id": "ag_style",
+    "name": "Mind Map Style Agent",
     "versions": [
       {
-        "script": "style_content"
+        "script": "style_mind"
       }
     ]
   },
   {
-    "id": "ag_style_brain",
-    "name": "官方——脑图风格",
+    "id": "ag_mind_create",
+    "name": "Mind Map Create Agent",
     "versions": [
       {
-        "script": "style_brain"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_tips",
-    "name": "官方——文字提示",
-    "versions": [
-      {
-        "script": "content_tips"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_create",
-    "name": "官方——文字创建",
-    "versions": [
-      {
-        "script": "content_new"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_modify",
-    "name": "官方——文字修改",
-    "versions": [
-      {
-        "script": "content_modify"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_update_by_brain",
-    "name": "官方——脑图修改引发文字修改",
-    "versions": [
-      {
-        "script": "content_update_by_brain"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_translate",
-    "name": "官方——文字翻译",
-    "versions": [
-      {
-        "script": "content_translate"
-      }
-    ]
-  },
-  {
-    "id": "ag_words_describe",
-    "name": "官方——文字描述",
-    "versions": [
-      {
-        "script": "words_describe"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_create",
-    "name": "官方——脑图创建",
-    "versions": [
-      {
-        "script": "brain_create"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_tips",
-    "name": "官方——脑图提示",
-    "versions": [
-      {
-        "script": "brain_tips"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_modify",
-    "name": "官方——脑图修改",
-    "versions": [
-      {
-        "script": "brain_modify"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_from_content",
-    "name": "官方——文字修改引发脑图修改",
-    "versions": [
-      {
-        "script": "brain_from_content"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_expand",
-    "name": "官方——脑图扩展",
-    "versions": [
-      {
-        "script": "brain_expand"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_expand_to_new",
-    "name": "官方——脑图扩展学习",
-    "versions": [
-      {
-        "script": "brain_expand_to_new"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_question_ask",
-    "name": "官方——脑图问答",
-    "versions": [
-      {
-        "script": "brain_question_ask"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_create_by_brain",
-    "name": "官方——脑图创建文字",
-    "versions": [
-      {
-        "script": "content_create_by_brain"
-      }
-    ]
-  },
-  {
-    "id": "ag_image_create_by_brain",
-    "name": "官方——脑图创建图片",
-    "versions": [
-      {
-        "script": "image_create_by_brain"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_create_by_content",
-    "name": "官方——文字创建脑图",
-    "versions": [
-      {
-        "script": "brain_create_by_content"
-      }
-    ]
-  },
-  {
-    "id": "ag_content_update",
-    "name": "官方——文字手动更新",
-    "versions": [
-      {
-        "script": "content_update"
-      }
-    ]
-  },
-  {
-    "id": "ag_brain_update",
-    "name": "官方——脑图手动更新",
-    "versions": [
-      {
-        "script": "brain_update"
+        "script": "mind_create"
       }
     ]
   }
