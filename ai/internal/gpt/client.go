@@ -17,7 +17,7 @@ type Config struct {
 var client *openai.Client
 
 func Setup(config Config) {
-	c := openai.DefaultAzureConfig(config.Token, "https://minduck-openai.openai.azure.com/")
+	c := openai.DefaultConfig(config.Token)
 	Image.openaiSk = config.Token
 
 	var transport *http.Transport
